@@ -169,4 +169,8 @@ function firstDay() {
   return Miment(year, month, 1)
 }
 
-export default Miment
+// module.export = {
+//     Miment
+// }
+
+module.exports = Miment

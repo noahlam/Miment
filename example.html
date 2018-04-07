@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .wrap{
+            margin: 0 auto;
+            width: 1200px;
+        }
+        .text{
+            padding: 20px;
+            font-size: 16px;
+            color: #666;
+            background: #fbfbfb;
+            box-sizing: border-box;
+        }
+        .title{
+            line-height: 50px;
+            font-size: 20px;
+            padding-left: 20px;
+            background: #f5f5f5;
+            border-left:3px solid #070;
+            color: #070;
+            box-sizing: border-box;
+        }
+        .code{
+            padding: 20px;
+            font-size: 14px;
+            color: #050;
+            border: 1px solid #f5f5f5;
+            box-sizing: border-box;
+        }
+        .bold{
+            font-weight: bold;
+            color:#070;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="title">格式化时间</div>
+        <div class="text">调用format方法</div>
+        <pre class="code" >
+            miment().format()
+        </pre>
+        <div class="text" id="foramt"></div>
+    </div>
+</body>
+<script src="./dist/miment-min.js"></script>
+<script>
+    window.onload = function () {
+        var foramt = document.getElementById('foramt')
+        foramt.innerHTML = miment().format()
+    }
+</script>
+</html>

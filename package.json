@@ -11,7 +11,14 @@
   },
   "author": "noahlam <284516433@qq.com>",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "webpack --config ./webpack.config.js"
+  },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "webpack": "2.2.0",
+    "babel-core": "*",
+    "babel-loader": "^6.0.0",
+    "babel-preset-env": "^1.3.2"
+  }
 }
