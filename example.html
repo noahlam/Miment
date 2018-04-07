@@ -7,55 +7,85 @@
         body{
             padding: 0;
             margin: 0;
+            font-size: 16px;
+            background: #fff;
         }
         .wrap{
             margin: 0 auto;
             width: 1200px;
         }
-        .text{
-            padding: 20px;
-            font-size: 16px;
-            color: #666;
-            background: #fbfbfb;
-            box-sizing: border-box;
-        }
+
         .title{
-            line-height: 50px;
-            font-size: 20px;
-            padding-left: 20px;
-            background: #f5f5f5;
-            border-left:3px solid #070;
+            padding: 20px;
+            border-bottom:1px solid #fff;
             color: #070;
             box-sizing: border-box;
+            font-weight: bold;
+            background: #f5f5f5;
         }
         .code{
             padding: 20px;
-            font-size: 14px;
-            color: #050;
-            border: 1px solid #f5f5f5;
+            color: #666;
             box-sizing: border-box;
+            display: block;
+            border-bottom:1px solid #fff;
+            background: #f5f5f5;
         }
-        .bold{
-            font-weight: bold;
-            color:#070;
+        .out{
+            padding: 20px;
+            color: #999;
+            box-sizing: border-box;
+            border-bottom:1px solid #fff;
+            background: #f5f5f5;
         }
+        .mb{margin-bottom: 10px;}
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="title">格式化时间</div>
-        <div class="text">调用format方法</div>
-        <pre class="code" >
-            miment().format()
-        </pre>
-        <div class="text" id="foramt"></div>
+
+        <div class="title">format 格式化时间</div>
+        <div class="code" >使用： miment().format('MM月DD日 hh:mm') </div>
+        <div class="out mb" id="foramt"></div>
+
+        <div class="title">json 转换成JSON格式</div>
+        <div class="code" >使用： miment().json() </div>
+        <div class="out mb" id="json"></div>
+
+        <div class="title">add 增加(或减少)时间</div>
+        <div class="code" >使用： miment().add(1,'DD') </div>
+        <div class="out" id="add"></div>
+        <div class="code" >加完后再格式化： miment().add(1,'DD').format() </div>
+        <div class="out mb" id="add_foramt"></div>
+
+        <div class="title">firstDayOfWeek 获取 本周的第一天（周日）</div>
+        <div class="code" >使用： miment().firstDayOfWeek() </div>
+        <div class="out" id="firstDayOfWeek"></div>
+        <div class="code" >获取并格式化： miment().firstDayOfWeek().format() </div>
+        <div class="out mb" id="firstDayOfWeek_format"></div>
+
     </div>
 </body>
 <script src="./dist/miment-min.js"></script>
 <script>
     window.onload = function () {
         var foramt = document.getElementById('foramt')
-        foramt.innerHTML = miment().format()
+        foramt.innerHTML = '输出： ' + miment().format('MM月DD日 hh:mm')
+
+        var json = document.getElementById('json')
+        json.innerHTML = '输出： <pre>' + JSON.stringify(miment().json(),null,4) + '</pre>'
+
+        var add = document.getElementById('add')
+        add.innerHTML = '输出： ' + miment().add(1,'DD')
+
+        var add_foramt = document.getElementById('add_foramt')
+        add_foramt.innerHTML = '输出： ' + miment().add(1,'DD').format()
+
+        var firstDayOfWeek = document.getElementById('firstDayOfWeek')
+        firstDayOfWeek.innerHTML = '输出： ' + miment().firstDayOfWeek()
+
+        var firstDayOfWeek_format = document.getElementById('firstDayOfWeek_format')
+        firstDayOfWeek_format.innerHTML = '输出： ' + miment().firstDayOfWeek().format()
     }
 </script>
 </html>
