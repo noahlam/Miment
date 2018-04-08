@@ -35,7 +35,6 @@ Miment.prototype.firstDayOfWeek = firstDayOfWeek
 
 // 转换成星期的数组
 const weekArray = ['日', '一', '二', '三', '四', '五', '六']
-
 // 格式化时间
 function format(fmt, distance) {
   let dt = this
@@ -70,7 +69,6 @@ function format(fmt, distance) {
     .replace('SSS', milliSecond)
     .replace('ww', weekArray[weekDay])
 }
-
 // 把时间转换成JSON对象
 function json() {
   let year = this.getFullYear()
@@ -93,6 +91,18 @@ function json() {
     milliSecond: milliSecond
   }
 }
+// 转换为时间戳
+function stamp() {
+  return this.valueOf();
+}
+// 获取一个月有几天
+function daysInMonth() {
+  let year = this.getFullYear()
+  let month = this.getMonth() + 1
+  let date = Miment(year, month, 0)
+  return date.getDate()
+}
+
 
 // 增加(或减少)时间
 function add(amount, unit) {
@@ -123,18 +133,11 @@ function add(amount, unit) {
   }
   return this
 }
-
 // 获取 本周的第一天（周日）
 function firstDayOfWeek() {
   this.setDate(this.getDate() - this.getDay());
   return this
 }
-
-// 转换为时间戳
-function stamp() {
-  return this.valueOf();
-}
-
 // 计算2个时间的差距
 function distance(dt) {
   let dtNew
@@ -146,31 +149,17 @@ function distance(dt) {
   let dtOld = this.valueOf()
   return Miment(dtNew - dtOld)
 }
-
-// 获取一个月有几天
-function daysInMonth() {
-  let year = this.getFullYear()
-  let month = this.getMonth() + 1
-  let date = Miment(year, month, 0)
-  return date.getDate()
-}
-
 // 获取每个月的最后一天
 function lastDay() {
   let year = this.getFullYear()
   let month = this.getMonth() + 1
   return Miment(year, month, 0)
 }
-
 // 获取每个月的第一天
 function firstDay() {
   let year = this.getFullYear()
   let month = this.getMonth()
   return Miment(year, month, 1)
 }
-
-// module.export = {
-//     Miment
-// }
 
 module.exports = Miment

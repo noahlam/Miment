@@ -1,91 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>example</title>
-    <style>
-        body{
-            padding: 0;
-            margin: 0;
-            font-size: 16px;
-            background: #fff;
-        }
-        .wrap{
-            margin: 0 auto;
-            width: 1200px;
-        }
+  <meta charset="UTF-8">
+  <title>example</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      font-size: 16px;
+      background: #fff;
+    }
 
-        .title{
-            padding: 20px;
-            border-bottom:1px solid #fff;
-            color: #070;
-            box-sizing: border-box;
-            font-weight: bold;
-            background: #f5f5f5;
-        }
-        .code{
-            padding: 20px;
-            color: #666;
-            box-sizing: border-box;
-            display: block;
-            border-bottom:1px solid #fff;
-            background: #f5f5f5;
-        }
-        .out{
-            padding: 20px;
-            color: #999;
-            box-sizing: border-box;
-            border-bottom:1px solid #fff;
-            background: #f5f5f5;
-        }
-        .mb{margin-bottom: 10px;}
-    </style>
+    .wrap {
+      margin: 0 auto;
+      width: 1200px;
+    }
+
+    .title {
+      padding: 20px;
+      border-bottom: 1px solid #fff;
+      color: #070;
+      box-sizing: border-box;
+      font-weight: bold;
+      background: #f5f5f5;
+    }
+
+    .code {
+      padding: 20px;
+      color: #666;
+      box-sizing: border-box;
+      display: block;
+      border-bottom: 1px solid #fff;
+      background: #f5f5f5;
+    }
+
+    .out {
+      padding: 20px;
+      color: #999;
+      box-sizing: border-box;
+      border-bottom: 1px solid #fff;
+      background: #f5f5f5;
+    }
+
+    .mb {
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="wrap">
+<div class="wrap">
 
-        <div class="title">format 格式化时间</div>
-        <div class="code" >使用： miment().format('MM月DD日 hh:mm') </div>
-        <div class="out mb" id="foramt"></div>
+  <div class="title">format 格式化时间</div>
+  <div class="code">使用： miment().format('MM月DD日 hh:mm:ss')</div>
+  <div class="out mb" id="foramt"></div>
 
-        <div class="title">json 转换成JSON格式</div>
-        <div class="code" >使用： miment().json() </div>
-        <div class="out mb" id="json"></div>
+  <div class="title">json 转换成JSON格式</div>
+  <div class="code">使用： miment().json()</div>
+  <div class="out mb" id="json"></div>
 
-        <div class="title">add 增加(或减少)时间</div>
-        <div class="code" >使用： miment().add(1,'DD') </div>
-        <div class="out" id="add"></div>
-        <div class="code" >加完后再格式化： miment().add(1,'DD').format() </div>
-        <div class="out mb" id="add_foramt"></div>
+  <div class="title">转换为时间戳</div>
+  <div class="code">使用： miment().stamp()</div>
+  <div class="out mb" id="stamp"></div>
 
-        <div class="title">firstDayOfWeek 获取 本周的第一天（周日）</div>
-        <div class="code" >使用： miment().firstDayOfWeek() </div>
-        <div class="out" id="firstDayOfWeek"></div>
-        <div class="code" >获取并格式化： miment().firstDayOfWeek().format() </div>
-        <div class="out mb" id="firstDayOfWeek_format"></div>
+  <div class="title">获取一个月有几天</div>
+  <div class="code">使用： miment().daysInMonth()</div>
+  <div class="out mb" id="daysInMonth"></div>
 
-    </div>
+  <div class="title">add 增加(或减少)时间</div>
+  <div class="code">使用： miment().add(1,'DD')</div>
+  <div class="out" id="add"></div>
+  <div class="code">加完后再格式化： miment().add(1,'DD').format()</div>
+  <div class="out mb" id="add_foramt"></div>
+
+  <div class="title">firstDayOfWeek 获取 本周的第一天（周日）</div>
+  <div class="code">使用： miment().firstDayOfWeek()</div>
+  <div class="out" id="firstDayOfWeek"></div>
+  <div class="code">获取并格式化： miment().firstDayOfWeek().format()</div>
+  <div class="out mb" id="firstDayOfWeek_format"></div>
+
+  <div class="title">firstDayOfWeek 计算2个时间的差距</div>
+  <div class="code">使用： miment().distance('2018-01-01')</div>
+  <div class="out" id="distance"></div>
+  <div class="code">获取并格式化： miment().distance('2018-01-01').format('距离高考还有MM月DD天',true) </div>
+  <div class="out mb" id="distance_format"></div>
+
+
+
+
+  <div class="title">firstDayOfWeek 获取每个月的最后一天</div>
+  <div class="code">使用： miment().distance('2018-01-01')</div>
+  <div class="out" id="distance"></div>
+  <div class="code">获取并格式化： miment().distance('2018-01-01').format('距离高考还有MM月DD天',true) </div>
+  <div class="out mb" id="distance_format"></div>
+
+  <div class="title">firstDayOfWeek 计算2个时间的差距</div>
+  <div class="code">使用： miment().distance('2018-01-01')</div>
+  <div class="out" id="distance"></div>
+  <div class="code">获取并格式化： miment().distance('2018-01-01').format('距离高考还有MM月DD天',true) </div>
+  <div class="out mb" id="distance_format"></div>
+
+</div>
 </body>
 <script src="./dist/miment-min.js"></script>
 <script>
-    window.onload = function () {
-        var foramt = document.getElementById('foramt')
-        foramt.innerHTML = '输出： ' + miment().format('MM月DD日 hh:mm')
+  window.onload = function () {
+    // 格式化时间
+    var foramt = document.getElementById('foramt')
+    foramt.innerHTML = '输出： ' + miment().format('MM月DD日 hh:mm:ss')
+    // 转换成JSON格式
+    var json = document.getElementById('json')
+    json.innerHTML = '输出： <pre>' + JSON.stringify(miment().json(), null, 4) + '</pre>'
+    // 转换为时间戳
+    var stamp = document.getElementById('stamp')
+    stamp.innerHTML = '输出： ' + miment().stamp()
+    // 获取一个月有几天
+    var daysInMonth = document.getElementById('daysInMonth')
+    daysInMonth.innerHTML = '输出： ' + miment().daysInMonth()
+    // 增加(或减少)时间
+    var add = document.getElementById('add')
+    add.innerHTML = '输出： ' + miment().add(1, 'DD')
+    // 增加(或减少)时间 后再格式化
+    var add_foramt = document.getElementById('add_foramt')
+    add_foramt.innerHTML = '输出： ' + miment().add(1, 'DD').format()
+    // 获取 本周的第一天（周日）
+    var firstDayOfWeek = document.getElementById('firstDayOfWeek')
+    firstDayOfWeek.innerHTML = '输出： ' + miment().firstDayOfWeek()
+    // 获取 本周的第一天（周日）并格式化
+    var firstDayOfWeek_format = document.getElementById('firstDayOfWeek_format')
+    firstDayOfWeek_format.innerHTML = '输出： ' + miment().firstDayOfWeek().format()
+    // 计算2个时间的差距
+    var distance = document.getElementById('distance')
+    distance.innerHTML = '输出： ' + miment().distance('2018-01-01')
+    // 计算2个时间的差距 并格式化
+    var distance_format = document.getElementById('distance_format')
+    distance_format.innerHTML = '输出： ' + miment().distance('2018-01-01').format('距离高考还有MM月DD天',true)
 
-        var json = document.getElementById('json')
-        json.innerHTML = '输出： <pre>' + JSON.stringify(miment().json(),null,4) + '</pre>'
 
-        var add = document.getElementById('add')
-        add.innerHTML = '输出： ' + miment().add(1,'DD')
-
-        var add_foramt = document.getElementById('add_foramt')
-        add_foramt.innerHTML = '输出： ' + miment().add(1,'DD').format()
-
-        var firstDayOfWeek = document.getElementById('firstDayOfWeek')
-        firstDayOfWeek.innerHTML = '输出： ' + miment().firstDayOfWeek()
-
-        var firstDayOfWeek_format = document.getElementById('firstDayOfWeek_format')
-        firstDayOfWeek_format.innerHTML = '输出： ' + miment().firstDayOfWeek().format()
-    }
+    // 获取每个月的最后一天
+    var lastDay = document.getElementById('lastDay')
+    lastDay.innerHTML = '输出： ' + miment().lastDay()
+    // 获取每个月的最后一天 并格式化
+    var lastDay_format = document.getElementById('lastDay_format')
+    lastDay_format.innerHTML = '输出： ' + miment().lastDay().format()
+    // 获取每个月的第一天
+    var distance = document.getElementById('distance')
+    distance.innerHTML = '输出： ' + miment().distance('2018-01-01')
+    // 获取每个月的第一天 并格式化
+    var distance_format = document.getElementById('distance_format')
+    distance_format.innerHTML = '输出： ' + miment().lastDay().format()
+  }
 </script>
 </html>
