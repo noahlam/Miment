@@ -10,6 +10,8 @@
       font-size: 16px;
       background: #fff;
     }
+    a{color:#070}
+    a:visited{color:#070}
 
     .wrap {
       margin: 0 auto;
@@ -81,23 +83,36 @@
   <div class="title">firstDayOfWeek 计算2个时间的差距</div>
   <div class="code">使用： miment().distance('2018-01-01')</div>
   <div class="out" id="distance"></div>
-  <div class="code">获取并格式化： miment().distance('2018-01-01').format('距离高考还有MM月DD天',true) </div>
+  <div class="code">获取并格式化： miment().distance('2018-01-01').format('距离高考还有MM月DD天',true)</div>
   <div class="out mb" id="distance_format"></div>
 
+  <div class="title">firstDay 获取每个月的第一天</div>
+  <div class="code">使用： miment().firstDay()</div>
+  <div class="out" id="firstDay"></div>
+  <div class="code">获取并格式化： miment().firstDay().format()</div>
+  <div class="out mb" id="firstDay_format"></div>
 
+  <div class="title">lastDay 获取每个月的最后一天</div>
+  <div class="code">使用： miment().lastDay()</div>
+  <div class="out" id="lastDay"></div>
+  <div class="code">获取并格式化： miment().lastDay().format()</div>
+  <div class="out mb" id="lastDay_format"></div>
 
+  <div class="title">Date 原生方法</div>
+  <div class="code">使用： miment().getFullYear()</div>
+  <div class="out" id="nativeFunction"></div>
+  <div class="code">
+    原生方法还有getDate()，getDay()，getFullYear()，getHours()，getMilliseconds()，getMinutes()，
+    getMonth()，getSeconds()，getTime()，getTimezoneOffset()，getUTCDate()，getUTCDay()，
+    getUTCFullYear()，getUTCHours()，getUTCMilliseconds()，getUTCMinutes()，getUTCMonth()，
+    getUTCSeconds()，getYear()，setDate()，setFullYear()，setHours()，setMilliseconds()，
+    setMinutes()，setMonth()，setSeconds()，setTime()，setUTCDate()，setUTCFullYear()，
+    setUTCHours()，setUTCMilliseconds()，setUTCMinutes()，setUTCMonth()，setUTCSeconds()，
+    setYear()，toDateString()，toUTCString()，toISOString()，toJSON()，toLocaleDateString()，
+    toLocaleString()，toLocaleTimeString()，toString()，toTimeString()，toUTCString()，valueOf()，
+    具体请参 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date">考官方文档</a>
+  </div>
 
-  <div class="title">firstDayOfWeek 获取每个月的最后一天</div>
-  <div class="code">使用： miment().distance('2018-01-01')</div>
-  <div class="out" id="distance"></div>
-  <div class="code">获取并格式化： miment().distance('2018-01-01').format('距离高考还有MM月DD天',true) </div>
-  <div class="out mb" id="distance_format"></div>
-
-  <div class="title">firstDayOfWeek 计算2个时间的差距</div>
-  <div class="code">使用： miment().distance('2018-01-01')</div>
-  <div class="out" id="distance"></div>
-  <div class="code">获取并格式化： miment().distance('2018-01-01').format('距离高考还有MM月DD天',true) </div>
-  <div class="out mb" id="distance_format"></div>
 
 </div>
 </body>
@@ -133,21 +148,22 @@
     distance.innerHTML = '输出： ' + miment().distance('2018-01-01')
     // 计算2个时间的差距 并格式化
     var distance_format = document.getElementById('distance_format')
-    distance_format.innerHTML = '输出： ' + miment().distance('2018-01-01').format('距离高考还有MM月DD天',true)
-
-
+    distance_format.innerHTML = '输出： ' + miment().distance('2018-01-01').format('距离高考还有MM月DD天', true)
+    // 获取每个月的第一天
+    var firstDay = document.getElementById('firstDay')
+    firstDay.innerHTML = '输出： ' + miment().firstDay()
+    // 获取每个月的第一天 并格式化
+    var firstDay_format = document.getElementById('firstDay_format')
+    firstDay_format.innerHTML = '输出： ' + miment().firstDay().format()
     // 获取每个月的最后一天
     var lastDay = document.getElementById('lastDay')
     lastDay.innerHTML = '输出： ' + miment().lastDay()
     // 获取每个月的最后一天 并格式化
     var lastDay_format = document.getElementById('lastDay_format')
     lastDay_format.innerHTML = '输出： ' + miment().lastDay().format()
-    // 获取每个月的第一天
-    var distance = document.getElementById('distance')
-    distance.innerHTML = '输出： ' + miment().distance('2018-01-01')
-    // 获取每个月的第一天 并格式化
-    var distance_format = document.getElementById('distance_format')
-    distance_format.innerHTML = '输出： ' + miment().lastDay().format()
+    // Date构造函数的原生方法
+    var nativeFunction = document.getElementById('nativeFunction')
+    nativeFunction.innerHTML = '输出： ' + miment().getFullYear()
   }
 </script>
 </html>

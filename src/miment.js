@@ -67,7 +67,8 @@ function format(fmt, distance) {
     .replace('mm', minute[1] ? minute : `0${minute}`)
     .replace('ss', second[1] ? second : `0${second}`)
     .replace('SSS', milliSecond)
-    .replace('ww', weekArray[weekDay])
+    .replace('ww', weekDay)
+    .replace('WW', weekArray[weekDay])
 }
 // 把时间转换成JSON对象
 function json() {
@@ -149,17 +150,18 @@ function distance(dt) {
   let dtOld = this.valueOf()
   return Miment(dtNew - dtOld)
 }
-// 获取每个月的最后一天
-function lastDay() {
-  let year = this.getFullYear()
-  let month = this.getMonth() + 1
-  return Miment(year, month, 0)
-}
 // 获取每个月的第一天
 function firstDay() {
   let year = this.getFullYear()
   let month = this.getMonth()
   return Miment(year, month, 1)
 }
+// 获取每个月的最后一天
+function lastDay() {
+  let year = this.getFullYear()
+  let month = this.getMonth() + 1
+  return Miment(year, month, 0)
+}
+
 
 module.exports = Miment
