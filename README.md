@@ -199,8 +199,12 @@ Moment的精简的时间库，于是就有了这个，为什么要叫Miment呢�
     miment().lastDay()           // Mon Apr 30 2018 00:00:00 GMT+0800 (CST)
     miment().lastDay().format()  // 2018-04-30 00:00:00
 
+#### 第三类
+
 10. `Date自带方法` miment继承自Date对象，所以也拥有Date对象的所有方法，这里就不做深入讲解，需要更多关于Date对象的说明，
 请移步至[MDN查看](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+    > 不过需要注意的是，由于继承而来的方法是属于Date对象的，为了保持一致，我们没有去对方法做改动，所以方法无法返回miment对象，也就是说无法链式调用miment
 
 ### 写在最后
 目前这些功能(函数)，是我们团队在日常实践中碰到的比较常用的，如果你对功能有新的需求或者建议，
