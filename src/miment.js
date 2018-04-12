@@ -26,8 +26,8 @@ Miment.prototype.json = json
 
 Miment.prototype.daysInMonth = daysInMonth
 
-Miment.prototype.distance = distance
 Miment.prototype.add = add
+Miment.prototype.distance = distance
 
 Miment.prototype.firstDay = firstDay
 Miment.prototype.lastDay = lastDay
@@ -96,14 +96,13 @@ function json() {
 function stamp() {
   return this.valueOf();
 }
-// 获取一个月有几天
+// 获取当前月的天数
 function daysInMonth() {
   let year = this.getFullYear()
   let month = this.getMonth() + 1
   let date = Miment(year, month, 0)
   return date.getDate()
 }
-
 
 // 增加(或减少)时间
 function add(amount, unit) {
@@ -128,26 +127,20 @@ function add(amount, unit) {
     case 'ss':
       this.setSeconds(this.getSeconds() + amount);
       break
+    case 'SSS':
+      this.setMilliseconds(this.getMilliseconds() + amount);
+      break
     case 'ww':
+    case 'WW':
       this.setDate(this.getDate() + amount * 7);
       break
   }
   return this
 }
-// 获取 本周的第一天（周日）
-function firstDayOfWeek() {
-  this.setDate(this.getDate() - this.getDay());
-  return this
-}
 // 计算2个时间的差距
-function distance(dt) {
-  let dtNew
-  if(!dt) {
-    dtNew = Miment().valueOf()
-  } else {
-    dtNew = Miment(dt).valueOf()
-  }
-  let dtOld = this.valueOf()
+function distance(dt,dt2) {
+  let dtNew = dt  ? Miment(dt).valueOf()  : Miment().valueOf()
+  let dtOld = dt2 ? Miment(dt2).valueOf() : this.valueOf()
   return Miment(dtNew - dtOld)
 }
 // 获取每个月的第一天
@@ -162,6 +155,10 @@ function lastDay() {
   let month = this.getMonth() + 1
   return Miment(year, month, 0)
 }
-
+// 获取 本周的第一天（周日）
+function firstDayOfWeek() {
+  this.setDate(this.getDate() - this.getDay());
+  return this
+}
 
 module.exports = Miment
