@@ -145,7 +145,8 @@
     firstDayOfWeek_format.innerHTML = '输出： ' + miment().firstDayOfWeek().format()
     // 计算2个时间的差距
     var distance = document.getElementById('distance')
-    distance.innerHTML = '输出： ' + miment().distance('2018-01-01')
+    // distance.innerHTML = '输出： ' + miment().distance('2018-01-01')
+    distance.innerHTML = '输出： ' + miment().distance(1523408529932).format(null,1)
     // 计算2个时间的差距 并格式化
     var distance_format = document.getElementById('distance_format')
     distance_format.innerHTML = '输出： ' + miment().distance('2018-01-01').format('距离高考还有MM月DD天', true)
