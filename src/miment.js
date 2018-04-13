@@ -49,8 +49,7 @@ function format(fmt, distance) {
     }
   }
   console.log('dt',dt)
-  let year = String(dt.getFullYear())
-  year = distance ? year - 1970 : year
+  let year = distance ? String(dt.getFullYear() - 1970 ) :String(dt.getFullYear())
   let month = String(dt.getMonth() + 1)
   let day = String(dt.getDate())
 
