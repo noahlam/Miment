@@ -190,13 +190,13 @@ Moment的精简的时间库，于是就有了这个，为什么要叫Miment呢�
 
 8. `firstDay`  **获取每个月的第一天** 不需要参数
 
-    miment().firstDay()           // Sun Apr 01 2018 00:00:00 GMT+0800 (CST)
-    miment().firstDay().format()  // 2018-04-01 00:00:00
+        miment().firstDay()           // Sun Apr 01 2018 00:00:00 GMT+0800 (CST)
+        miment().firstDay().format()  // 2018-04-01 00:00:00
 
 9. `lastDay`  **获取每个月的最后一天** 不需要参数
 
-    miment().lastDay()           // Mon Apr 30 2018 00:00:00 GMT+0800 (CST)
-    miment().lastDay().format()  // 2018-04-30 00:00:00
+        miment().lastDay()           // Mon Apr 30 2018 00:00:00 GMT+0800 (CST)
+        miment().lastDay().format()  // 2018-04-30 00:00:00
 
 #### 第三类
 
