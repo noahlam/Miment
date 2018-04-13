@@ -36,30 +36,34 @@ Miment.prototype.firstDayOfWeek = firstDayOfWeek
 // 转换成星期的数组
 const weekArray = ['日', '一', '二', '三', '四', '五', '六']
 // 格式化时间
-function format(fmt, distance) {
-  let dt = this
-  if (fmt === null || fmt === undefined) {
-    fmt = 'YYYY-MM-DD hh:mm:ss'
-  }
+function format(fmt,distance) {
+  let year, month, day, hour, minute, second, weekDay, milliSecond
+  if (fmt === null || fmt === undefined) fmt = 'YYYY-MM-DD hh:mm:ss'
   if (distance) {
-    this.setHours(this.getHours() - 8)
-    // 判断是不是负数
-    if(this.valueOf() < 0) {
-      dt = Miment(Math.abs(this.valueOf()))
-    }
-  }
-  console.log('dt',dt)
-  let year = distance ? String(dt.getFullYear() - 1970 ) :String(dt.getFullYear())
-  let month = String(dt.getMonth() + 1)
-  let day = String(dt.getDate())
+    // 格式化时间差
+    year = this.getFullYear() - 1970
+    month = String(this.getMonth())
+    day = fmt.indexOf('MM') >= 0 ? String(this.getDate() - 1) : ~~(this.valueOf() / 1000 / 60 / 60 / 24) + ''
+    hour = fmt.indexOf('DD') >= 0 ? String(this.getHours() - 8) : ~~(this.valueOf() / 1000 / 60 / 60) + ''
+    minute = fmt.indexOf('hh') >= 0 ? String(this.getMinutes()) : ~~(this.valueOf() / 1000 / 60) + ''
+    second = fmt.indexOf('mm') >= 0 ? String(this.getSeconds()) : ~~(this.valueOf() / 1000) + ''
 
-  let hour = String(dt.getHours())
-  let minute = String(dt.getMinutes())
-  let second = String(dt.getSeconds())
-  let weekDay = dt.getDay()
-  let milliSecond = dt.getMilliseconds()
-  return fmt
-    .replace('YYYY', year[1] ? year : `0${year}`)
+    weekDay = ~~(this.valueOf() / 1000 / 60 / 60 / 24 / 7) + ''
+    milliSecond = this.getMilliseconds()
+  } else {
+    // 普通的格式化
+    year = this.getFullYear()
+    month = String(this.getMonth() + 1)
+    day = String(this.getDate())
+    hour = String(this.getHours())
+    minute = String(this.getMinutes())
+    second = String(this.getSeconds())
+    weekDay = this.getDay()
+    milliSecond = this.getMilliseconds()
+  }
+  // 替换并且返回 格式化后的值
+  fmt = fmt
+    .replace('YYYY', year)
     .replace('MM', month[1] ? month : `0${month}`)
     .replace('DD', day[1] ? day : `0${day}`)
     .replace('hh', hour[1] ? hour : `0${hour}`)
@@ -67,8 +71,10 @@ function format(fmt, distance) {
     .replace('ss', second[1] ? second : `0${second}`)
     .replace('SSS', milliSecond)
     .replace('ww', weekDay)
-    .replace('WW', weekArray[weekDay])
+  fmt = distance ? fmt.replace('WW', weekDay) : fmt.replace('WW', weekArray[weekDay])
+  return fmt
 }
+
 // 把时间转换成JSON对象
 function json() {
   let year = this.getFullYear()
@@ -138,9 +144,13 @@ function add(amount, unit) {
 }
 // 计算2个时间的差距
 function distance(dt,dt2) {
-  let dtNew = dt  ? Miment(dt).valueOf()  : Miment().valueOf()
+  let dtNew = Miment(dt).valueOf()
   let dtOld = dt2 ? Miment(dt2).valueOf() : this.valueOf()
-  return Miment(dtNew - dtOld)
+  if(dtNew > dtOld) {
+    return Miment(dtNew - dtOld)
+  } else {
+    return Miment(dtOld - dtNew)
+  }
 }
 // 获取每个月的第一天
 function firstDay() {
