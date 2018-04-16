@@ -50,11 +50,30 @@ Moment的精简的时间库，于是就有了这个，为什么要叫Miment呢�
 
 1. `format` **格式化时间** ,format方法也就是我们平时最常用的一个了，他一共接收2个参数，这2个参数都有默认值，不传就使用默认值
 
-    |  参数名称   | 参数类型 | 参数默认值 | 是否必传  |   说明   |
-    |-----------|---------|----------|----------|----------|
-    |格式化的字符串|  string | 'YYYY-MM-DD hh:mm:ss' | N  |年YYYY,月MM,日DD,时hh,分mm,秒ss,毫秒SSS,数字星期ww,中文星期WW
-    |是否是格式化一个时间差| boolean | false | N  | 比如你要计算的时间是一个倒计时，这个时候也就需要传true |
-    
+    <table>
+    	<tr>
+        	<td>参数名称</td>
+            <td>参数类型</td>
+            <td>参数默认值</td>
+            <td>是否必传</td>
+            <td>说明</td>
+        </tr>
+        <tr>
+        	<td>格式化的字符串</td>
+            <td>string</td>
+            <td>'YYYY-MM-DD hh:mm:ss'</td>
+            <td>N</td>
+            <td>年YYYY,月MM,日DD,时hh,分mm,秒ss,毫秒SSS,数字星期ww,中文星期WW</td>
+        </tr>
+        <tr>
+        	<td>是否是格式化一个时间差</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>N</td>
+            <td>比如你要计算的时间是一个倒计时，这个时候也就需要传true</td>
+        </tr>
+    </table>
+
     > 本着简单的原则，这里格式化方式没有做的太灵活,有时候灵活也是一种学习成本，因为你需要记很多的用法，不是吗？,
     **注意**格式化字符串区分大小写，记的技巧是大的单位大写 YYYY MM DD，小的单位小写 hh mm ss 毫秒跟星期特殊的单独记，
     参数必须严格按照说明里面的填写，多一个或者少一个都认不到，比如YYYY写成YYY或者YY这样是识别不了的
@@ -122,10 +141,29 @@ Moment的精简的时间库，于是就有了这个，为什么要叫Miment呢�
 
 5. `add` **增加或减少时间**,它接收2个参数
 
-    |参数名称| 参数类型 | 参数默认值 | 是否必传  |   说明   |
-    |-------|--------|-----------|---------|----------|
-    |  增量 | number |      0     |   N    |要增加的时间量，增加传正数，减少传负数 |
-    |增量单位| string |   无默认值  |   Y    | 要增加的时间单位，可选有YYYY MM DD hh mm ss SSS ww WW|
+    <table style='border-collapse:collapse;' >
+    	<tr>
+        	<td>参数名称</td>
+            <td>参数类型</td>
+            <td>参数默认值</td>
+            <td>是否必传</td>
+            <td>说明</td>
+        </tr>
+    	<tr>
+        	<td>增量</td>
+            <td>number</td>
+            <td>0</td>
+            <td>N</td>
+            <td>要增加的时间量，增加传正数，减少传负数</td>
+        </tr>
+    	<tr>
+        	<td>增量单位</td>
+            <td>string</td>
+            <td>无默认值</td>
+            <td>Y</td>
+            <td>要增加的时间单位<br>可选有YYYY MM DD hh mm ss SSS ww WW</td>
+        </tr>
+    </table>
 
     > 单位 的可选参数跟格式化方法`format`的类似，这么做也是为了方便记忆，只需要记一套方案
 
@@ -148,10 +186,29 @@ Moment的精简的时间库，于是就有了这个，为什么要叫Miment呢�
 
 6. `distance` **计算2个时间的距离** 接收2个参数，返回一个miment对象
 
-    |参数名称| 参数类型 | 参数默认值 | 是否必传  |   说明   |
-    |-------|--------|-----------|---------|----------|
-    |起始时间 |miment/date/number/string | 无 | Y |接受4种类型参数，会自动转换|
-    |结束时间 |miment/date/number/string | 无 | N |同上|
+     <table style='border-collapse:collapse;' >
+        	<tr>
+            	<td>参数名称</td>
+                <td>参数类型</td>
+                <td>参数默认值</td>
+                <td>是否必传</td>
+                <td>说明</td>
+            </tr>
+        	<tr>
+            	<td>起始时间</td>
+                <td>miment/date/number/string</td>
+                <td>无</td>
+                <td>Y</td>
+                <td>接受4种类型参数，会自动转换</td>
+            </tr>
+        	<tr>
+            	<td>结束时间</td>
+                <td>miment/date/number/string</td>
+                <td>无</td>
+                <td>N</td>
+                <td>同上</td>
+            </tr>
+        </table>
 
     > 只传一个起始时间的时候，返回 **起始时间 - miment当前时间**
 
