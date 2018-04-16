@@ -9,6 +9,8 @@ Object.setPrototypeOf = Object.setPrototypeOf ||
  * 用了点技巧的继承，实际上返回的是Date对象
  */
 function Miment() {
+  // 兼容苹果系统 不识别 2018-01-01 的问题
+  if(typeof arguments[0] === 'string') arguments[0] = arguments[0].replace(/-/g, '/')
   // bind属于Function.prototype，接收的参数是：object, param1, params2...
   var dateInst = new (Function.prototype.bind.apply(Date, [Date].concat(Array.prototype.slice.call(arguments))))();
   // 更改原型指向，否则无法调用Miment原型上的方法
