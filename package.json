@@ -1,7 +1,14 @@
 {
-  "name": "Miment",
+  "name": "miment",
   "version": "0.0.5",
-  "description": "a fast,light weight,simple and non-dependencies datetime library for javascript ( mini moment )",
+  "description": "A fast, light weight, simple and non-dependencies time library for JavaScript (mini moment)",
+  "keywords": [
+    "time",
+    "date",
+    "datetime",
+    "format",
+    "moment"
+  ],
   "files": [
     "./src/miment.js"
   ],
