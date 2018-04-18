@@ -1,6 +1,6 @@
 # Miment
 
-Miment is an aero-weigh time library (1KB minified) but get things done efficiently.
+Miment is an aero-weigh time library (~1KB minified) but get things done efficiently.
 
 [![Build Status](https://travis-ci.org/noahlam/Miment.svg?branch=master)](https://travis-ci.org/noahlam/Miment)
 [![Badge Size](https://img.badgesize.io/https://unpkg.com/miment/dist/miment-min.js?compression=gzip&amp;label=size&amp;maxAge=300)](https://unpkg.com/miment/dist/miment-min.js)
@@ -21,7 +21,7 @@ Moment is an **extraordinary** time library that almost covers everything you ne
 For NPM environment:
 
 ```
-npm intsall miment
+npm i miment
 ```
 
 Import into codebase and go:
@@ -34,8 +34,8 @@ miment().format() // 2018-04-09 23:01:58
 For browser usage, simply include `./dist/miment-min.js`:
 
 ``` html
-&lt;script src="//unpkg.com/miment/dist/miment-min.js"&gt;&lt;/script&gt;
-&lt;script&gt;miment().format()&lt;/script&gt;
+<script src="//unpkg.com/miment/dist/miment-min.js"></script>
+<script>miment().format()</script>
 ```
 
 
