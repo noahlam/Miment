@@ -29,7 +29,7 @@ miment().format() // 2018-04-09 23:01:58
 
 For browser usage, simply include `./dist/miment-min.js`:
 
-```
+``` html
 &lt;script src="//unpkg.com/miment/dist/miment-min.js"&gt;&lt;/script&gt;
 &lt;script&gt;miment().format()&lt;/script&gt;
 ```

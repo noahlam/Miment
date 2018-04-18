@@ -4,16 +4,21 @@
 ## 介绍
 Miment ("Mini Moment") 是一个轻量级的时间库，打包压缩后体积 1K，没有过多的方法。它的上手成本几乎为零，无需反复查阅文档。当你只需要 Moment 的若干核心能力但又不希望使你的包体积膨胀时，欢迎尝试 Miment。
 
+[![Build Status](https://travis-ci.org/noahlam/Miment.svg?branch=master)](https://travis-ci.org/noahlam/Miment)
+
+* [English README](./README.md)
+* [查看示例](https://noahlam.github.io/Miment)
+
 >  首先致敬一下 Moment，非常好用的一个时间库。我本身也是 Moment 重度使用者，用习惯了 Moment，一碰到需要处理时间的需求立马 Moment。不过有时候想想，Moment 给我们提供了那么多的功能，但是我们天天用的， 也就那么一两个。刚好最近在写微信小程序，然后在页面引入 Moment，打包完，包竟然大了 200 多 K，把 Moment 去掉，就直接少掉 200 多 K。反复试了好几次，确定一个 Moment 在小程序里面，占用大概 200K 的空间。于是就想自己写一个类似 Moment 的精简的时间库，于是就有了这个。为什么要叫Miment 呢？其实刚开始我是想叫 Mini-Moment 的，但是考虑到以后可能会经常使用到，打 2 个单词中间还要加一个横杆太累了，所以就把 Mini-Moment 缩水成 Miment 了。
 
-[查看示例](https://noahlam.github.io/Miment)
+
 
 ## 安装
 对浏览器环境，在页面引入 `./dist/miment-min.js` 即可：
 
 ``` html
-<script src="//unpkg.com/miment/dist/miment-min.js"></script>
-<script>miment().format()</script>
+&lt;script src="//unpkg.com/miment/dist/miment-min.js"&gt;&lt;/script&gt;
+&lt;script&gt;miment().format()&lt;/script&gt;
 ```
 
 在 NPM 生态中使用时，请使用包管理器安装 Miment：
