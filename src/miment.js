@@ -42,16 +42,25 @@ function format(fmt,distance) {
   let year, month, day, hour, minute, second, weekDay, milliSecond
   if (fmt === null || fmt === undefined) fmt = 'YYYY-MM-DD hh:mm:ss'
   if (distance) {
-    // 格式化时间差
-    year = this.getFullYear() - 1970
-    month = String(this.getMonth())
-    day = fmt.indexOf('MM') >= 0 ? String(this.getDate() - 1) : ~~(this.valueOf() / 1000 / 60 / 60 / 24) + ''
-    hour = fmt.indexOf('DD') >= 0 ? String(this.getHours() - 8) : ~~(this.valueOf() / 1000 / 60 / 60) + ''
-    minute = fmt.indexOf('hh') >= 0 ? String(this.getMinutes()) : ~~(this.valueOf() / 1000 / 60) + ''
-    second = fmt.indexOf('mm') >= 0 ? String(this.getSeconds()) : ~~(this.valueOf() / 1000) + ''
+    let dtBegin , dtEnd
+    if (this.__distance_begin__ >= this.__distance_end__){
+      dtBegin = Miment(this.__distance_begin__)
+      dtEnd = Miment(this.__distance_end__)
 
-    weekDay = ~~(this.valueOf() / 1000 / 60 / 60 / 24 / 7) + ''
-    milliSecond = this.getMilliseconds()
+    }else {
+      dtBegin = Miment(this.__distance_end__)
+      dtEnd = Miment(this.__distance_begin__)
+      // op = '-'
+    }
+    // 时间差的格式化
+    year = dtBegin.getFullYear() - dtEnd.getFullYear()
+    month = String(dtBegin.getMonth() - dtEnd.getMonth())
+    day = String(dtBegin.getDate() - dtEnd.getDate())
+    hour = String(dtBegin.getHours() - dtEnd.getHours())
+    minute = String(dtBegin.getMinutes() - dtEnd.getMinutes())
+    second = String(dtBegin.getSeconds() - dtEnd.getSeconds())
+    weekDay = dtBegin.getDay() - dtEnd.getDay()
+    milliSecond = dtBegin.getMilliseconds() - dtEnd.getMilliseconds()
   } else {
     // 普通的格式化
     year = this.getFullYear()
@@ -74,6 +83,7 @@ function format(fmt,distance) {
     .replace('SSS', milliSecond)
     .replace('ww', weekDay)
   fmt = distance ? fmt.replace('WW', weekDay) : fmt.replace('WW', weekArray[weekDay])
+  // return op + fmt
   return fmt
 }
 
@@ -146,13 +156,18 @@ function add(amount, unit) {
 }
 // 计算2个时间的差距
 function distance(dt,dt2) {
-  let dtNew = Miment(dt).valueOf()
-  let dtOld = dt2 ? Miment(dt2).valueOf() : this.valueOf()
-  if(dtNew > dtOld) {
-    return Miment(dtNew - dtOld)
+  let dtBegin, dtEnd
+  if(dt2){
+    dtBegin = Miment(dt).valueOf()
+    dtEnd = Miment(dt2).valueOf()
   } else {
-    return Miment(dtOld - dtNew)
+    dtBegin = this.valueOf()
+    dtEnd = Miment(dt).valueOf()
   }
+  let m = Miment(dtBegin - dtEnd)
+  m.__distance_begin__ = dtBegin
+  m.__distance_end__ = dtEnd
+  return m
 }
 // 获取每个月的第一天
 function firstDay() {
