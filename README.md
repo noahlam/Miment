@@ -3,6 +3,8 @@
 Miment 是一个轻量级的时间库（打包压缩后只有1K）,没有太多的方法，
 Miment的设计理念就是让你以几乎为零的成本快速上手，无需一遍一遍的撸文档
 
+[![Build Status](https://travis-ci.org/noahlam/Miment.svg?branch=master)](https://travis-ci.org/noahlam/Miment)
+
 ### 由来 
 
 首先 致敬一下Moment，非常好用的一个时间库，我本身也是Moment重度使用者，用习惯了Moment,
