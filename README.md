@@ -3,6 +3,10 @@
 Miment is an aero-weigh time library (1KB minified) but get things done efficiently.
 
 [![Build Status](https://travis-ci.org/noahlam/Miment.svg?branch=master)](https://travis-ci.org/noahlam/Miment)
+[![Badge Size](https://img.badgesize.io/https://unpkg.com/miment/dist/miment-min.js?compression=gzip&amp;label=size&amp;maxAge=300)](https://unpkg.com/miment/dist/miment-min.js)
+[![Version](https://img.shields.io/npm/v/miment.svg?maxAge=300&label=version&colorB=007ec6&maxAge=300)](./package.json)
+[![LICENSE](https://img.shields.io/npm/l/miment.svg?maxAge=300)](./LICENSE)
+
 
 * [中文 README](./README-cn.md)
 * [Example](https://noahlam.github.io/Miment/)
