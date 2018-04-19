@@ -28,14 +28,16 @@ Import into codebase and go:
 
 ``` js
 import miment from 'miment'
-miment().format() // 2018-04-09 23:01:58
+miment().format('YYYY/MM/DD hh-mm-ss SSS') // 2018/04/09 23-49-36 568
 ```
 
 For browser usage, simply include `./dist/miment-min.js`:
 
 ``` html
-<script src="//unpkg.com/miment/dist/miment-min.js"></script>
-<script>miment().format()</script>
+<script src="https://unpkg.com/miment/dist/miment-min.js"></script>
+<script>
+  miment().format('YYYY/MM/DD hh-mm-ss SSS') // 2018/04/09 23-49-36 568
+</script>
 ```
 
 
@@ -47,7 +49,7 @@ For browser usage, simply include `./dist/miment-min.js`:
 For most daily usage, `format` is what you need:
 
 ``` js
-miment().format('YYYY年MM月DD日 hh:mm:ss') // 2018-04-09 23:49:36
+miment().format() // 2018-04-09 23:49:36
 miment().format('YYYY/MM/DD hh-mm-ss SSS') // 2018/04/09 23-49-36 568
 miment().format('YYYY年MM月DD日 星期WW') // 2018年04月09日 星期一
 miment().format('YYYY年MM月DD日 星期ww') // 2018年04月09日 星期1 *周日对应星期0*
@@ -84,7 +86,7 @@ What's the date 10 days after? `add` is what you need:
 
 ``` js
 miment().add(1,'DD') // next day
-miment().add(1,'YYYY').add(2,'MM').add(-3,'DD') // chaining
+miment().add(1, 'YYYY').add(2, 'MM').add(-3, 'DD') // chaining
 miment().add(-1,'ww') // date last week
 miment().add(500,SSS) // add 500ms
 ```
@@ -137,9 +139,9 @@ For miment instance methods, there are basically 3 kinds of methods available:
 Get `Miment` object with offset date added.
 
 ``` js
-miment().add(1,'DD')
-miment().add(1,'YYYY').add(2,'MM').add(-3,'DD')
-miment().add(-1,'ww')
+miment().add(1, 'DD')
+miment().add(1, 'YYYY').add(2, 'MM').add(-3, 'DD')
+miment().add(-1, 'ww')
 miment().add(500,SSS)
 ```
 
