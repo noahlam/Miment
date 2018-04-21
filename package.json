@@ -27,6 +27,7 @@
     "build:cjs": "rollup -c ./build/rollup-cjs.js",
     "build:min": "rollup -c ./build/rollup-min.js",
     "build": "yarn run build:cjs & yarn run build:min",
+    "lint": "standard",
     "test": "ava"
   },
   "dependencies": {},
@@ -43,6 +44,7 @@
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-uglify": "^3.0.0",
+    "standard": "^11.0.1",
     "uglify-es": "^3.3.9"
   }
 }

@@ -1,13 +1,17 @@
 language: node_js
-#指定nodejs版本，可以指定多个
+
 node_js:
-  - 8.10.0
+  - stable
 
-#运行的脚本命令
+cache:
+  yarn: true
+
+env:
+  # Do two runs, one for testing and one for linting.
+  matrix:
+    - TEST_TYPE=lint
+    - TEST_TYPE=test
+
 script:
-  - npm run test
-
-#指定分支，只有指定的分支提交时才会运行脚本
-branches:
-  only:
-    - master
+  # Run testing or linting depending on the environment.
+  - yarn run $TEST_TYPE
