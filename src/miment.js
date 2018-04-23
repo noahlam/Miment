@@ -44,8 +44,8 @@ function format (formatter = 'YYYY-MM-DD hh:mm:ss', distance = false) {
   let year, month, day, hour, minute, second, weekDay, milliSecond
 
   if (distance) {
-    let dtBegin, dtEnd
-    if (this.__distance_begin__ >= this.__distance_end__) {
+    let  dtBegin, dtEnd
+    if(this.__distance_begin__ > this.__distance_end__){
       dtBegin = Miment(this.__distance_begin__)
       dtEnd = Miment(this.__distance_end__)
     } else {
@@ -53,33 +53,57 @@ function format (formatter = 'YYYY-MM-DD hh:mm:ss', distance = false) {
       dtEnd = Miment(this.__distance_begin__)
     }
     // 时间差的格式化
-    year = dtBegin.getFullYear() - dtEnd.getFullYear()
-    month = String(dtBegin.getMonth() - dtEnd.getMonth())
-    day = String(dtBegin.getDate() - dtEnd.getDate())
-    hour = String(dtBegin.getHours() - dtEnd.getHours())
-    minute = String(dtBegin.getMinutes() - dtEnd.getMinutes())
-    second = String(dtBegin.getSeconds() - dtEnd.getSeconds())
-    weekDay = dtBegin.getDay() - dtEnd.getDay()
-    milliSecond = dtBegin.getMilliseconds() - dtEnd.getMilliseconds()
+    year =dtBegin.getFullYear() - dtEnd.getFullYear()
+    month = dtBegin.getMonth() - dtEnd.getMonth()
+    day = dtBegin.getDate() - dtEnd.getDate()
+    hour = dtBegin.getHours() - dtEnd.getHours()
+    minute = dtBegin.getMinutes() - dtEnd.getMinutes()
+    second = dtBegin.getSeconds() - dtEnd.getSeconds()
+    weekDay = Math.abs(dtBegin.getDay() - dtEnd.getDay())
+    milliSecond = Math.abs(dtBegin.getMilliseconds() - dtEnd.getMilliseconds())
+    if(milliSecond < 0) {
+      milliSecond += 1000
+      second --
+    }
+    if(second < 0) {
+      second += 60
+      minute --
+    }
+    if(minute < 0) {
+      minute += 60
+      hour --
+    }
+    if(hour < 0) {
+      hour += 24
+      day --
+    }
+    if(day < 0) {
+      day += dtEnd.daysInMonth()
+      month --
+    }
+    if(month < 0) {
+      month += 12
+      year --
+    }
   } else {
     // 普通的格式化
     year = this.getFullYear()
-    month = String(this.getMonth() + 1)
-    day = String(this.getDate())
-    hour = String(this.getHours())
-    minute = String(this.getMinutes())
-    second = String(this.getSeconds())
+    month = this.getMonth() + 1
+    day = this.getDate()
+    hour = this.getHours()
+    minute = this.getMinutes()
+    second = this.getSeconds()
     weekDay = this.getDay()
     milliSecond = this.getMilliseconds()
   }
   // 替换并返回格式化后的值
   formatter = formatter
     .replace('YYYY', year)
-    .replace('MM', month[1] ? month : `0${month}`)
-    .replace('DD', day[1] ? day : `0${day}`)
-    .replace('hh', hour[1] ? hour : `0${hour}`)
-    .replace('mm', minute[1] ? minute : `0${minute}`)
-    .replace('ss', second[1] ? second : `0${second}`)
+    .replace('MM', String(month)[1] ? month : `0${month}`)
+    .replace('DD', String(day)[1] ? day : `0${day}`)
+    .replace('hh', String(hour)[1] ? hour : `0${hour}`)
+    .replace('mm', String(minute)[1] ? minute : `0${minute}`)
+    .replace('ss', String(second)[1] ? second : `0${second}`)
     .replace('SSS', milliSecond)
     .replace('ww', weekDay)
   formatter = distance ? formatter.replace('WW', weekDay) : formatter.replace('WW', weekArray[weekDay])
