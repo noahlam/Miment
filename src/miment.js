@@ -44,8 +44,8 @@ function format (formatter = 'YYYY-MM-DD hh:mm:ss', distance = false) {
   let year, month, day, hour, minute, second, weekDay, milliSecond
 
   if (distance) {
-    let  dtBegin, dtEnd
-    if(this.__distance_begin__ > this.__distance_end__){
+    let dtBegin, dtEnd
+    if (this.__distance_begin__ > this.__distance_end__) {
       dtBegin = Miment(this.__distance_begin__)
       dtEnd = Miment(this.__distance_end__)
     } else {
@@ -53,7 +53,7 @@ function format (formatter = 'YYYY-MM-DD hh:mm:ss', distance = false) {
       dtEnd = Miment(this.__distance_begin__)
     }
     // 时间差的格式化
-    year =dtBegin.getFullYear() - dtEnd.getFullYear()
+    year = dtBegin.getFullYear() - dtEnd.getFullYear()
     month = dtBegin.getMonth() - dtEnd.getMonth()
     day = dtBegin.getDate() - dtEnd.getDate()
     hour = dtBegin.getHours() - dtEnd.getHours()
@@ -61,29 +61,29 @@ function format (formatter = 'YYYY-MM-DD hh:mm:ss', distance = false) {
     second = dtBegin.getSeconds() - dtEnd.getSeconds()
     weekDay = Math.abs(dtBegin.getDay() - dtEnd.getDay())
     milliSecond = Math.abs(dtBegin.getMilliseconds() - dtEnd.getMilliseconds())
-    if(milliSecond < 0) {
+    if (milliSecond < 0) {
       milliSecond += 1000
-      second --
+      second--
     }
-    if(second < 0) {
+    if (second < 0) {
       second += 60
-      minute --
+      minute--
     }
-    if(minute < 0) {
+    if (minute < 0) {
       minute += 60
-      hour --
+      hour--
     }
-    if(hour < 0) {
+    if (hour < 0) {
       hour += 24
-      day --
+      day--
     }
-    if(day < 0) {
+    if (day < 0) {
       day += dtEnd.daysInMonth()
-      month --
+      month--
     }
-    if(month < 0) {
+    if (month < 0) {
       month += 12
-      year --
+      year--
     }
   } else {
     // 普通的格式化
