@@ -9,6 +9,7 @@ Miment is an aero-weigh time library (~1KB minified) but get things done efficie
 
 
 * [中文 README](./README-cn.md)
+* [Update log](./update_log.md)
 * [Example](https://noahlam.github.io/Miment/)
 
 

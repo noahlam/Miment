@@ -10,6 +10,7 @@ Miment ("Mini Moment") 是一个轻量级的时间库，打包压缩后体积 ~1
 [![LICENSE](https://img.shields.io/npm/l/miment.svg?maxAge=300)](./LICENSE)
 
 * [English README](./README.md)
+* [更新日志](./update_log.md)
 * [查看示例](https://noahlam.github.io/Miment)
 
 >  首先致敬一下 Moment，非常好用的一个时间库。我本身也是 Moment 重度使用者，用习惯了 Moment，一碰到需要处理时间的需求立马 Moment。不过有时候想想，Moment 给我们提供了那么多的功能，但是我们天天用的，也就那么一两个。刚好最近在写微信小程序，然后在页面引入 Moment，打包完，包竟然大了 200 多 K，把 Moment 去掉，就直接少掉 200 多 K。反复试了好几次，确定一个 Moment 在小程序里面，占用大概 200K 的空间。于是就想自己写一个类似 Moment 的精简的时间库，于是就有了这个。为什么要叫 Miment 呢？其实刚开始我是想叫 Mini-Moment 的，但是考虑到以后可能会经常使用到，打 2 个单词中间还要加一个横杆太累了，所以就把 Mini-Moment 缩水成 Miment 了。
