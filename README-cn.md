@@ -156,6 +156,31 @@ miment().stamp()
 miment().daysInMonth()
 // 30
 ```
+#### `isBefore` 接收一个参数作为`被比较的时间`
+判断当前时间 是否早于参数 返回一个布尔值
+
+``` js
+miment().isBefore('2000-01-01')
+// false
+miment().isBefore('2020-01-01')
+// true
+```
+#### `isAfter` 接收一个参数作为`被比较的时间`
+判断当前时间 是否晚于参数 返回一个布尔值
+
+``` js
+miment().isAfter('2000-01-01')
+// true
+miment().isAfter('2020-01-01')
+// false
+```
+#### `isBetween` 接收两个参数作为`被比较的时间`
+判断当前时间 是否介于两个参数之间,参数不分先后顺序，两个参数位置可以任意对调
+
+``` js
+miment().isBetween('2000-01-01','2020-01-01')
+// true
+```
 
 ### 支持链式调用的方法
 

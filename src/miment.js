@@ -23,19 +23,6 @@ function Miment () {
   return dateInst
 }
 
-Miment.prototype.format = format
-Miment.prototype.stamp = stamp
-Miment.prototype.json = json
-
-Miment.prototype.daysInMonth = daysInMonth
-
-Miment.prototype.add = add
-Miment.prototype.distance = distance
-
-Miment.prototype.firstDay = firstDay
-Miment.prototype.lastDay = lastDay
-Miment.prototype.firstDayOfWeek = firstDayOfWeek
-
 // 转换成星期的数组
 const weekArray = ['日', '一', '二', '三', '四', '五', '六']
 
@@ -146,6 +133,24 @@ function daysInMonth () {
   return date.getDate()
 }
 
+// 判断当前时间是否早于 参数里的时间
+function isBefore (dt) {
+  return this.valueOf() < Miment(dt).valueOf()
+}
+
+// 判断当前时间是否晚于 参数里的时间
+function isAfter (dt) {
+  return this.valueOf() > Miment(dt).valueOf()
+}
+
+// 判断当前时间是否在 参数里的2个时间之间
+function isBetween (dt1,dt2) {
+  dt1 = Miment(dt1).valueOf()
+  dt2 = Miment(dt2).valueOf()
+  let dt = this.valueOf()
+  return (dt1 > dt && dt2 < dt) || (dt1 < dt && dt2 > dt)
+}
+
 // 增加或减少时间
 function add (amount, unit) {
   if (!amount) amount = 0
@@ -215,5 +220,22 @@ function firstDayOfWeek () {
   this.setDate(this.getDate() - this.getDay())
   return this
 }
+
+Miment.prototype.format = format
+Miment.prototype.stamp = stamp
+Miment.prototype.json = json
+
+Miment.prototype.isBefore = isBefore
+Miment.prototype.isAfter = isAfter
+Miment.prototype.isBetween = isBetween
+
+Miment.prototype.daysInMonth = daysInMonth
+
+Miment.prototype.add = add
+Miment.prototype.distance = distance
+
+Miment.prototype.firstDay = firstDay
+Miment.prototype.lastDay = lastDay
+Miment.prototype.firstDayOfWeek = firstDayOfWeek
 
 module.exports = Miment
