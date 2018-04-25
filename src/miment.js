@@ -144,7 +144,7 @@ function isAfter (dt) {
 }
 
 // 判断当前时间是否在 参数里的2个时间之间
-function isBetween (dt1,dt2) {
+function isBetween (dt1, dt2) {
   dt1 = Miment(dt1).valueOf()
   dt2 = Miment(dt2).valueOf()
   let dt = this.valueOf()
