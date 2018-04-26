@@ -14,8 +14,9 @@
     "README.md",
     "README-cn.md",
     "example.html",
-    "dist",
-    "lib"
+    "dist/miment.min.js",
+    "lib/miment.js",
+    "lib/miment.js.map"
   ],
   "repository": {
     "url": "https://github.com/noahlam/Miment.git",
