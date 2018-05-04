@@ -1,6 +1,6 @@
 {
   "name": "miment",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A fast, light weight, simple and non-dependencies time library for JavaScript (mini moment)",
   "keywords": [
     "time",

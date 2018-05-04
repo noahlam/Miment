@@ -122,7 +122,7 @@ function json () {
 
 // 获取
 function _get (unit) {
-  switch(unit) {
+  switch (unit) {
     case 'YYYY': return this.getFullYear()
     case 'MM': return this.getMonth() + 1
     case 'DD': return this.getDate()
@@ -137,8 +137,8 @@ function _get (unit) {
 }
 
 function get (unit) {
-  let res = String(_get.call(this,unit))
-  return res[1] || unit == 'SSS' || unit == 'millisecond' ? res : `0${res}`
+  let res = String(_get.call(this, unit))
+  return res[1] || unit === 'SSS' || unit === 'millisecond' ? res : `0${res}`
 }
 
 // 转换为时间戳
@@ -182,7 +182,7 @@ function isBetween (dt1, dt2) {
 }
 
 // 内部方法 计算时间
-function _calculateTime (amount, unit,isSet) {
+function _calculateTime (amount, unit, isSet) {
   switch (unit) {
     case 'YY':
     case 'YYYY':
@@ -215,7 +215,7 @@ function _calculateTime (amount, unit,isSet) {
       break
     case 'ww':
     case 'WW':
-      if(isSet){
+      if (isSet) {
         this.setMonth(0)
         this.setDate(1)
         this.setDate(amount * 7)
@@ -230,20 +230,20 @@ function _calculateTime (amount, unit,isSet) {
 // 增加或减少时间
 function add (amount, unit) {
   if (!amount) amount = 0
-  _calculateTime.call(this,amount, unit)
+  _calculateTime.call(this, amount, unit)
   return this
 }
 
 // 增加或减少时间
 function sub (amount, unit) {
   if (!amount) amount = 0
-  _calculateTime.call(this,-amount, unit)
+  _calculateTime.call(this, -amount, unit)
   return this
 }
 // 设置时间
 function set (amount, unit) {
   if (!amount) amount = 0
-  _calculateTime.call(this,amount, unit,true)
+  _calculateTime.call(this, amount, unit, true)
   return this
 }
 // 计算两个时间距离
