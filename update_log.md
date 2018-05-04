@@ -1,4 +1,9 @@
 # Update Log  更新日志
+### v0.0.8 (2018-05-04)
+1. added get api
+1. added set api
+1. added diff api
+1. added sub api
 
 ### v0.0.7 (2018-04-26)
 1. added isBefore api
