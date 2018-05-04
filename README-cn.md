@@ -138,7 +138,7 @@ miment().json()
   "minute": 57,
   "second": 41,
   "day": 3,
-  "milliSecond": 87
+  "millisecond": 87
 }
 ```
 

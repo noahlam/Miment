@@ -8,7 +8,7 @@ test('json api', t => {
     date: 21,
     day: 4,
     hour: 12,
-    milliSecond: 0,
+    millisecond: 0,
     minute: 34,
     month: 2,
     second: 56,

@@ -76,7 +76,7 @@ For JSON format, `miment().json()` yields:
   "minute": 57,
   "second": 41,
   "day": 3,
-  "milliSecond": 87
+  "millisecond": 87
 }
 ```
 
@@ -224,7 +224,7 @@ Get JSON object for date fields.
   "minute": 57,
   "second": 41,
   "day": 3,
-  "milliSecond": 87
+  "millisecond": 87
 }
 ```
 
