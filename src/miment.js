@@ -282,6 +282,46 @@ function firstDayOfWeek () {
   return this
 }
 
+// 获取起始时间
+function startOf (unit = 'DD') {
+  switch (unit) {
+    case 'mm':
+      return Miment(this.format('YYYY-MM-DD hh:mm:00'))
+    case 'hh':
+      return Miment(this.format('YYYY-MM-DD hh:00:00'))
+    case 'DD':
+      return Miment(this.format('YYYY-MM-DD 00:00:00'))
+    case 'ww':
+    case 'WW':
+      return Miment(this.firstDayOfWeek().format('YYYY-MM-01 00:00:00'))
+    case 'MM':
+      return Miment(this.format('YYYY-MM-01 00:00:00'))
+    case 'YY':
+    case 'YYYY':
+      return Miment(this.format('YYYY-01-01 00:00:00'))
+  }
+}
+
+// 获取结束时间
+function endOf (unit = 'DD') {
+  switch (unit) {
+    case 'mm':
+      return Miment(this.format('YYYY-MM-DD hh:mm:59'))
+    case 'hh':
+      return Miment(this.format('YYYY-MM-DD hh:59:59'))
+    case 'DD':
+      return Miment(this.format('YYYY-MM-DD 23:59:59'))
+    case 'ww':
+    case 'WW':
+      return Miment(this.firstDayOfWeek().add(7, 'DD').format('YYYY-MM-01 00:00:00'))
+    case 'MM':
+      return Miment(this.lastDay().format('YYYY-MM-01 23:59:59'))
+    case 'YY':
+    case 'YYYY':
+      return Miment(this.set(12, 'MM').lastDay().format('YYYY-12-01 23:59:59'))
+  }
+}
+
 Miment.prototype.format = format
 Miment.prototype.stamp = stamp
 Miment.prototype.json = json
@@ -298,6 +338,9 @@ Miment.prototype.add = add
 Miment.prototype.sub = sub
 Miment.prototype.set = set
 Miment.prototype.distance = distance
+
+Miment.prototype.startOf = startOf
+Miment.prototype.endOf = endOf
 
 Miment.prototype.firstDay = firstDay
 Miment.prototype.lastDay = lastDay
