@@ -293,7 +293,7 @@ function startOf (unit = 'DD') {
       return Miment(this.format('YYYY-MM-DD 00:00:00'))
     case 'ww':
     case 'WW':
-      return Miment(this.firstDayOfWeek().format('YYYY-MM-01 00:00:00'))
+      return Miment(this.firstDayOfWeek().format('YYYY-MM-DD 00:00:00'))
     case 'MM':
       return Miment(this.format('YYYY-MM-01 00:00:00'))
     case 'YY':
@@ -313,12 +313,12 @@ function endOf (unit = 'DD') {
       return Miment(this.format('YYYY-MM-DD 23:59:59'))
     case 'ww':
     case 'WW':
-      return Miment(this.firstDayOfWeek().add(7, 'DD').format('YYYY-MM-01 00:00:00'))
+      return Miment(this.firstDayOfWeek().add(6, 'DD').format('YYYY-MM-DD 23:59:59'))
     case 'MM':
-      return Miment(this.lastDay().format('YYYY-MM-01 23:59:59'))
+      return Miment(this.lastDay().format('YYYY-MM-DD 23:59:59'))
     case 'YY':
     case 'YYYY':
-      return Miment(this.set(12, 'MM').lastDay().format('YYYY-12-01 23:59:59'))
+      return Miment(this.set(12, 'MM').lastDay().format('YYYY-MM-DD 23:59:59'))
   }
 }
 
