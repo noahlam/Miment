@@ -18,10 +18,10 @@ Miment ("Mini Moment") 是一个轻量级的时间库，打包压缩后体积 ~1
 
 
 ## 安装
-对浏览器环境，在页面引入 `./dist/miment-min.js` 即可：
+对浏览器环境，在页面引入 `./dist/miment.min.js` 即可：
 
 ``` html
-<script src="https://unpkg.com/miment/dist/miment-min.js"></script>
+<script src="https://unpkg.com/miment/dist/miment.min.js"></script>
 <script>
   miment().format('YYYY/MM/DD hh-mm-ss SSS') // 2018/04/09 23-49-36 568
 </script>

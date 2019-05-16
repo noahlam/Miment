@@ -32,10 +32,10 @@ import miment from 'miment'
 miment().format('YYYY/MM/DD hh-mm-ss SSS') // 2018/04/09 23-49-36 568
 ```
 
-For browser usage, simply include `./dist/miment-min.js`:
+For browser usage, simply include `./dist/miment.min.js`:
 
 ``` html
-<script src="https://unpkg.com/miment/dist/miment-min.js"></script>
+<script src="https://unpkg.com/miment/dist/miment.min.js"></script>
 <script>
   miment().format('YYYY/MM/DD hh-mm-ss SSS') // 2018/04/09 23-49-36 568
 </script>
@@ -93,7 +93,7 @@ miment().add(500,SSS) // add 500ms
 ```
 
 > Remember not to chain `add()` after `format()`, since `format()` returns string instead of miment instance:
-> 
+>
 > ``` js
 > miment().add(1, 'DD').format().add(1, 'DD') // Error!
 > ```
