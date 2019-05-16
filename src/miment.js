@@ -11,7 +11,12 @@ Object.setPrototypeOf = Object.setPrototypeOf ||
  */
 function Miment () {
   // 兼容苹果系统不识别 2018-01-01 的问题
-  if (typeof arguments[0] === 'string') arguments[0] = arguments[0].replace(/-/g, '/')
+  const arg = arguments[0]
+  const isNormalDatetimeReg = /^[\d-: ]*$/
+  if (typeof arg === 'string' && isNormalDatetimeReg.test(arg)) {
+    arguments[0] = arg.replace(/-/g, '/')
+  }
+
   // bind 属于 Function.prototype
   // 接收参数形如 object, param1, params2...
   var dateInst = new (Function.prototype.bind.apply(Date, [Date].concat(Array.prototype.slice.call(arguments))))()
